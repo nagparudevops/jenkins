@@ -4,13 +4,22 @@ pipeline {
             label 'ROBOSHOP'
         }
     }
+    environment {
+        COURSE = "Jenkins"
+    }
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 5,unit: 'SECONDS')
+    }
+
     stages {
         stage ('Build') {
             steps {
                 script{
                     sh """
                     echo "Building"
-
+                    echo $COURSE
+                    sleep 5
                     """
 
                 }
