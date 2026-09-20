@@ -1,31 +1,25 @@
 pipeline {
-    agent 
-    {
-        node {
-            label "ROBOSHOP"
+    agent {
+        label 'Agent'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
         }
-        stages{
-            stage('build') 
-            {
-                steps {
-                    echo "building..!!!"
-                }
+
+        stage('Test') {
+            steps {
+                echo 'Testing...'
             }
-        
-            stage('Test') 
-            {
-                steps {
-                    echo "Testing..!!!"
-                }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
             }
-           
-        stage('deploy') 
-            {
-                steps {
-                    echo "deploying..!!!"
-                }
-            }
-        }    
-        
+        }
     }
 }
